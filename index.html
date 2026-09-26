@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Velvet Brew Café</title>
+
+    <!-- ================================
+         INTERNAL CSS
+    ================================= -->
+
+    <style>
+
+        /* ---------- GLOBAL STYLES ---------- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #f8f3ec;
+            color: #3b2923;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+
+        /* ---------- NAVIGATION ---------- */
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+
+            background: rgba(42, 29, 24, 0.96);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            height: 75px;
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #e8c39e;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #fff8ef;
+            font-size: 12px;
+            display: block;
+            letter-spacing: 4px;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #f8eee3;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e8c39e;
+        }
+
+
+        /* ---------- HERO SECTION ---------- */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 120px 8% 70px;
+
+            background:
+                linear-gradient(
+                    rgba(42, 29, 24, 0.76),
+                    rgba(42, 29, 24, 0.76)
+                ),
+                linear-gradient(
+                    135deg,
+                    #6f4e37,
+                    #2a1d18
+                );
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-small-title {
+            color: #e8c39e;
+            font-size: 15px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 68px;
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #e8c39e;
+        }
+
+        .hero-description {
+            max-width: 620px;
+            color: #eee1d4;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 27px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #b87845;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #9c6035;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #e8c39e;
+            color: #e8c39e;
+        }
+
+        .btn-outline:hover {
+            background-color: #e8c39e;
+            color: #2a1d18;
+        }
+
+
+        /* ---------- COMMON SECTION ---------- */
+
+        .section {
+            padding: 90px 8%;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-heading small {
+            color: #a56539;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            color: #3b2923;
+            font-size: 42px;
+            margin: 10px 0 15px;
+        }
+
+        .section-heading p {
+            color: #77665d;
+            font-size: 16px;
+        }
+
+
+        /* ---------- ABOUT SECTION ---------- */
+
+        .about {
+            background-color: #f8f3ec;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-visual {
+            min-height: 430px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #8b6245,
+                    #3b2923
+                );
+
+            border-radius: 6px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+
+            box-shadow: 0 20px 40px rgba(59, 41, 35, 0.18);
+        }
+
+        .coffee-symbol {
+            font-size: 130px;
+        }
+
+        .about-badge {
+            position: absolute;
+            right: -20px;
+            bottom: 30px;
+
+            background-color: #e8c39e;
+            color: #3b2923;
+
+            width: 130px;
+            height: 130px;
+
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: #77665d;
+            margin-bottom: 18px;
+        }
+
+        .about-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .about-list li {
+            margin: 12px 0;
+            color: #57443b;
+        }
+
+        .about-list li::before {
+            content: "✓";
+            color: #a56539;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+
+        /* ---------- MENU SECTION ---------- */
+
+        .menu {
+            background-color: #fffaf4;
+        }
+
+        .menu-container {
+            max-width: 1050px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .menu-category {
+            background-color: #f8f3ec;
+            padding: 30px;
+            border: 1px solid #eadfd3;
+            border-radius: 5px;
+        }
+
+        .menu-category h3 {
+            color: #8a5434;
+            font-size: 25px;
+            margin-bottom: 25px;
+
+            padding-bottom: 12px;
+            border-bottom: 1px solid #dbc9b8;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px dashed #d6c5b6;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item h4 {
+            font-size: 17px;
+            margin-bottom: 3px;
+        }
+
+        .menu-item p {
+            color: #817066;
+            font-size: 13px;
+        }
+
+        .menu-price {
+            color: #9b6038;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+
+        /* ---------- SPECIAL OFFER ---------- */
+
+        .special {
+            background-color: #33231d;
+            color: white;
+            text-align: center;
+        }
+
+        .special-content {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .special small {
+            color: #e8c39e;
+            letter-spacing: 3px;
+        }
+
+        .special h2 {
+            font-size: 45px;
+            margin: 12px 0;
+        }
+
+        .special p {
+            color: #d8c6b8;
+            margin-bottom: 25px;
+        }
+
+
+        /* ---------- FEATURES ---------- */
+
+        .features {
+            background-color: #f8f3ec;
+        }
+
+        .feature-container {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+
+            background-color: #fffaf4;
+
+            border: 1px solid #eadfd3;
+
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(59, 41, 35, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 19px;
+        }
+
+        .feature-card p {
+            color: #817066;
+            font-size: 14px;
+        }
+
+
+        /* ---------- TESTIMONIALS ---------- */
+
+        .testimonials {
+            background-color: #fffaf4;
+        }
+
+        .testimonial-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .testimonial {
+            padding: 30px;
+
+            background-color: #f8f3ec;
+
+            border-left: 4px solid #b87845;
+        }
+
+        .stars {
+            color: #b87845;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .testimonial p {
+            color: #66554d;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial h4 {
+            color: #3b2923;
+        }
+
+
+        /* ---------- CONTACT ---------- */
+
+        .contact {
+            background-color: #f1e8de;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info > p {
+            color: #77665d;
+            margin-bottom: 25px;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .contact-icon {
+            font-size: 22px;
+        }
+
+        .contact-detail strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .contact-detail span {
+            color: #77665d;
+            font-size: 14px;
+        }
+
+        .contact-card {
+            background-color: #fffaf4;
+            padding: 35px;
+            border-radius: 5px;
+            box-shadow: 0 10px 25px rgba(59, 41, 35, 0.08);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 20px;
+        }
+
+        .contact-card input,
+        .contact-card textarea {
+            width: 100%;
+            padding: 13px;
+
+            margin-bottom: 15px;
+
+            border: 1px solid #d8c8ba;
+            background-color: #fff;
+
+            font-family: inherit;
+            outline: none;
+        }
+
+        .contact-card input:focus,
+        .contact-card textarea:focus {
+            border-color: #a56539;
+        }
+
+        .contact-card textarea {
+            resize: vertical;
+        }
+
+        .contact-card button {
+            border: none;
+            cursor: pointer;
+        }
+
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            background-color: #2a1d18;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        footer .footer-logo {
+            color: #e8c39e;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #bca99c;
+            font-size: 14px;
+            margin: 7px;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: #e8c39e;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+
+        /* ---------- RESPONSIVE DESIGN ---------- */
+
+        @media (max-width: 900px) {
+
+            .hero h1 {
+                font-size: 52px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonial-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            nav {
+                height: auto;
+                padding: 15px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding-top: 160px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .section {
+                padding: 65px 6%;
+            }
+
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
+            .feature-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-badge {
+                right: 10px;
+            }
+
+            .menu-category {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =================================
+         NAVIGATION
+    ================================== -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                Velvet Brew
+                <span>CAFÉ</span>
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#menu">Menu</a>
+                </li>
+
+                <li>
+                    <a href="#features">Why Us</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =================================
+         HERO SECTION
+    ================================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-small-title">
+                Welcome to Velvet Brew
+            </div>
+
+            <h1>
+                Slow mornings.<br>
+                <span>Good coffee.</span>
+            </h1>
+
+            <p class="hero-description">
+
+                A warm and cozy café where handcrafted coffee,
+                freshly baked treats and meaningful conversations
+                come together. Take a seat, slow down and enjoy
+                the little moments.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#menu" class="btn btn-primary">
+                    Explore Our Menu
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Visit Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         ABOUT SECTION
+    ================================== -->
+
+    <section class="section about" id="about">
+
+        <div class="section-heading">
+
+            <small>Our Story</small>
+
+            <h2>
+                More Than Just Coffee
+            </h2>
+
+            <p>
+                A little corner of comfort, creativity and great taste.
+            </p>
+
+        </div>
+
+
+        <div class="about-container">
+
+            <div class="about-visual">
+
+                <div class="coffee-symbol">
+                    ☕
+                </div>
+
+                <div class="about-badge">
+                    EST.<br>
+                    2024
+                </div>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <h3>
+                    Crafted With Passion
+                </h3>
+
+                <p>
+                    Velvet Brew started with a simple idea:
+                    create a place where people could enjoy
+                    exceptional coffee without feeling rushed.
+                </p>
+
+                <p>
+                    Every cup is carefully prepared by our
+                    baristas using freshly roasted beans.
+                    Our pastries and desserts are baked with
+                    the same attention to detail.
+                </p>
+
+                <ul class="about-list">
+
+                    <li>
+                        Freshly roasted coffee beans
+                    </li>
+
+                    <li>
+                        Handmade pastries every morning
+                    </li>
+
+                    <li>
+                        Comfortable and peaceful atmosphere
+                    </li>
+
+                    <li>
+                        Friendly service
+                    </li>
+
+                </ul>
+
+                <a href="#contact" class="btn btn-primary">
+                    Discover Our Café
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         MENU SECTION
+    ================================== -->
+
+    <section class="section menu" id="menu">
+
+        <div class="section-heading">
+
+            <small>Our Menu</small>
+
+            <h2>
+                Something for Every Mood
+            </h2>
+
+            <p>
+                Carefully selected drinks and food made fresh for you.
+            </p>
+
+        </div>
+
+
+        <div class="menu-container">
+
+
+            <!-- COFFEE -->
+
+            <div class="menu-category">
+
+                <h3>
+                    ☕ Coffee
+                </h3>
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Espresso</h4>
+                        <p>Rich and bold single-origin espresso.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹120
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Cappuccino</h4>
+                        <p>Espresso with steamed milk and silky foam.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹180
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Café Latte</h4>
+                        <p>Smooth espresso with creamy steamed milk.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹190
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Caramel Macchiato</h4>
+                        <p>Espresso, milk and house-made caramel.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹220
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- NON COFFEE -->
+
+            <div class="menu-category">
+
+                <h3>
+                    🍵 Other Drinks
+                </h3>
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Masala Chai</h4>
+                        <p>Traditional Indian tea with aromatic spices.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹100
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Hot Chocolate</h4>
+                        <p>Rich chocolate topped with soft cream.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹180
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Iced Latte</h4>
+                        <p>Cold espresso with creamy chilled milk.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹200
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Fresh Lemon Tea</h4>
+                        <p>Refreshing tea with fresh lemon and honey.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹130
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOOD -->
+
+            <div class="menu-category">
+
+                <h3>
+                    🥐 Café Bites
+                </h3>
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Butter Croissant</h4>
+                        <p>Flaky and buttery French-style croissant.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹140
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Avocado Toast</h4>
+                        <p>Toasted sourdough with creamy avocado.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹260
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Veggie Sandwich</h4>
+                        <p>Fresh vegetables, cheese and house sauce.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹220
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Garlic Bread</h4>
+                        <p>Toasted bread with garlic butter and herbs.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹160
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DESSERTS -->
+
+            <div class="menu-category">
+
+                <h3>
+                    🍰 Desserts
+                </h3>
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Chocolate Brownie</h4>
+                        <p>Warm fudgy brownie with chocolate chunks.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹160
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Cheesecake</h4>
+                        <p>Creamy cheesecake with berry topping.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹220
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Tiramisu</h4>
+                        <p>Classic Italian dessert with coffee and cream.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹240
+                    </div>
+
+                </div>
+
+
+                <div class="menu-item">
+
+                    <div>
+                        <h4>Chocolate Cake</h4>
+                        <p>Moist chocolate cake with rich frosting.</p>
+                    </div>
+
+                    <div class="menu-price">
+                        ₹190
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         SPECIAL OFFER
+    ================================== -->
+
+    <section class="section special">
+
+        <div class="special-content">
+
+            <small>THIS WEEKEND</small>
+
+            <h2>
+                Coffee & Cake for ₹299
+            </h2>
+
+            <p>
+                Choose any regular coffee and pair it with
+                one of our freshly baked cakes.
+                Available every Saturday and Sunday.
+            </p>
+
+            <a href="#contact" class="btn btn-primary">
+                Reserve a Table
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         FEATURES
+    ================================== -->
+
+    <section class="section features" id="features">
+
+        <div class="section-heading">
+
+            <small>Why Velvet Brew</small>
+
+            <h2>
+                Made for Good Moments
+            </h2>
+
+            <p>
+                We care about the details that make your café experience special.
+            </p>
+
+        </div>
+
+
+        <div class="feature-container">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ☕
+                </div>
+
+                <h3>
+                    Quality Coffee
+                </h3>
+
+                <p>
+                    Freshly roasted beans and carefully prepared
+                    coffee in every cup.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🥐
+                </div>
+
+                <h3>
+                    Fresh Food
+                </h3>
+
+                <p>
+                    Delicious pastries and café bites prepared
+                    fresh every day.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🎵
+                </div>
+
+                <h3>
+                    Relaxing Atmosphere
+                </h3>
+
+                <p>
+                    Soft music, warm lighting and a peaceful
+                    environment to unwind.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    💻
+                </div>
+
+                <h3>
+                    Work Friendly
+                </h3>
+
+                <p>
+                    Comfortable seating and Wi-Fi for studying,
+                    working or creating.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         TESTIMONIALS
+    ================================== -->
+
+    <section class="section testimonials">
+
+        <div class="section-heading">
+
+            <small>Guest Reviews</small>
+
+            <h2>
+                What People Say
+            </h2>
+
+            <p>
+                A few words from people who have visited us.
+            </p>
+
+        </div>
+
+
+        <div class="testimonial-container">
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "The coffee was excellent and the atmosphere
+                    was incredibly peaceful. Definitely one of my
+                    favorite places to spend a quiet afternoon."
+                </p>
+
+                <h4>
+                    — Ananya
+                </h4>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Beautiful café, friendly staff and amazing
+                    desserts. The cheesecake is absolutely worth trying!"
+                </p>
+
+                <h4>
+                    — Rahul
+                </h4>
+
+            </div>
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "I love working from here. Great coffee,
+                    comfortable seating and a really relaxing vibe."
+                </p>
+
+                <h4>
+                    — Priya
+                </h4>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         CONTACT SECTION
+    ================================== -->
+
+    <section class="section contact" id="contact">
+
+        <div class="section-heading">
+
+            <small>Come Say Hello</small>
+
+            <h2>
+                Visit Velvet Brew
+            </h2>
+
+            <p>
+                Drop by for a cup of coffee and stay for the atmosphere.
+            </p>
+
+        </div>
+
+
+        <div class="contact-container">
+
+
+            <div class="contact-info">
+
+                <h3>
+                    We'd Love to See You
+                </h3>
+
+                <p>
+                    Whether you're meeting friends, working on a project,
+                    reading a book or simply enjoying some alone time,
+                    there's always a seat waiting for you.
+                </p>
+
+
+                <div class="contact-detail">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+                        <strong>Address</strong>
+
+                        <span>
+                            24 Coffee Street, Bengaluru, India
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <div class="contact-icon">
+                        🕐
+                    </div>
+
+                    <div>
+                        <strong>Opening Hours</strong>
+
+                        <span>
+                            Monday - Sunday: 8:00 AM - 10:00 PM
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <div class="contact-icon">
+                        📞
+                    </div>
+
+                    <div>
+                        <strong>Phone</strong>
+
+                        <span>
+                            +91 98765 43210
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-detail">
+
+                    <div class="contact-icon">
+                        ✉️
+                    </div>
+
+                    <div>
+                        <strong>Email</strong>
+
+                        <span>
+                            hello@velvetbrew.com
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+
+            <div class="contact-card">
+
+                <h3>
+                    Send Us a Message
+                </h3>
+
+                <form>
+
+                    <input
+                        type="text"
+                        placeholder="Your Name"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        placeholder="Your Email"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        placeholder="Subject"
+                    >
+
+                    <textarea
+                        rows="5"
+                        placeholder="Your Message"
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Velvet Brew Café
+        </div>
+
+        <p>
+            Good coffee. Good food. Good company.
+        </p>
+
+
+        <div class="social-links">
+
+            <a href="#">
+                Instagram
+            </a>
+
+            <a href="#">
+                Facebook
+            </a>
+
+            <a href="#">
+                WhatsApp
+            </a>
+
+        </div>
+
+
+        <p>
+            © 2026 Velvet Brew Café. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
